@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Add Subcategory - Flask</title>
+</head>
+<body>
+    <h3>Adicionar Subcategoria a {{ params.get("cat1") }}</h3>
+    <form action="upSubCat" method="post">
+        <p>Adicione a subcategoria: <input type="text" name="subcat"/></p>
+        <p><input type="hidden" name="supercat" value="{{ params.get("cat1") }}"></p>
+        <p><input type="submit" value="Submit"/><p>
+    </form>
+</body>
+</html>

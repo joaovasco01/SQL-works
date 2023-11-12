@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>List categorias - Flask</title>
+</head>
+
+<body style="padding:20px">
+    {% if cursor %}
+    <table border="2px">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in cursor %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td>
+                    <form action="addSubCat">
+                        <input type="hidden" name="cat1" value="{{ record[0] }}">
+                        <input type="submit" value="Adicionar Subcategoria" on_click="log_console({{ record[0] }})">
+                        
+                    </form>
+                </td>
+                <td>
+                    <form action="remCat" method="post">
+                        <input type="hidden" name="cat" value="{{ record[0] }}">
+                        <input type="submit" value="Remover Categoria" on_click="log_console({{ record[0] }})">
+                        
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            <th> <a href="addCat">Adicionar Categoria </a> </th>
+        </tbody>
+     </table>
+    {% endif %}
+</body>
+
+</html>
